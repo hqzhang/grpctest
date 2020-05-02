@@ -1,9 +1,11 @@
 # grpctest
 # install dep
+```
 go get google.golang.org/grpc@v1.28.1
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
-
+```
 #mkdir myprotoc and touch service.go
+```
 syntax = "proto3";
 package proto;
 
@@ -18,11 +20,13 @@ service AddService {
    rpc Add(Request) returns (Response);
    rpc Multiply(Request) returns (Response);
 }
-
+```
 #generate protobuff
+```
 protoc --proto_path=myproto  --go_out=plugins=grpc:myproto service.proto
-
+```
 #mkdir server and touch main.go
+```
 package main
 
 import (
@@ -53,8 +57,9 @@ func main() {
          panic(e)
     }
 }
-
+```
 #mkdir client and touch main.go
+```
 package main
   
 import (
@@ -83,4 +88,4 @@ func main() {
     }
     log.Printf("Add 2 and 3: %d", r.GetResult())
 }
-
+```
