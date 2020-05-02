@@ -89,3 +89,10 @@ func main() {
     log.Printf("Add 2 and 3: %d", r.GetResult())
 }
 ```
+#running and test
+```
+go run server/main.go &
+go run client/main.go
+
+Add 2 and 3: 5
+```
